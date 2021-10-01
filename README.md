@@ -1,9 +1,3 @@
-<style>
-    .img {
-        border: 3px solid black;
-    }
-</style>
-
 # HTML 쥬얼리 홈페이지
 
 ------------
@@ -15,7 +9,7 @@
 ## ■ Preview
 <figure>
     <div><b><i>■ Main Page</i></b></div>
-    <img class="img" src="/README_IMG/main.png" width="70%" height="auto">
+    <img class="img" src="/HTML/README_IMG/main.png" width="70%" height="auto">
 </figure>
 
 </br>
@@ -23,7 +17,7 @@
 
 <figure>
     <div><b><i>■ Main Page Products</i></b></div>
-    <img class="img" src="/README_IMG/products.png" width="70%" height="auto">
+    <img class="img" src="/HTML/README_IMG/products.png" width="70%" height="auto">
 </figure>
 
 </br>
@@ -31,7 +25,7 @@
 
 <figure>
     <div><b><i>■ Product Sell Page</i></b></div>
-    <img class="img" src="/README_IMG/product.png" width="70%" height="auto">
+    <img class="img" src="/HTML/README_IMG/product.png" width="70%" height="auto">
 </figure>
 
 </br>
