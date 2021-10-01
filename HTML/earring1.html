@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>itempage</title>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Gotic','Malgun Gothic',Arial,dotum,sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        img {
+            border: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        html {
+            background: white;
+        }
+
+        body {
+            margin: 0 auto;
+            width: 1290px;
+        }
+    </style>
+    <style>
+        #main-header {
+            height: 40px;
+            background: #FFFFFF;
+            position: relative;
+            border-top: 1px solid #cfcaca;
+            border-bottom: 2px solid #cfcaca;
+        }
+
+        .header-search-form {
+            float: left;
+        }
+
+        .header-menu {
+            float: right;
+        }
+    </style>
+    <style>
+        #main-navigation {
+            height: 50px;
+            background: #FFFFFF;
+            border-top: 2px solid #7d7b7b;
+            border-bottom: 1px solid #cfcaca;
+        }
+
+        .nav-menu {
+            float: left;
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10%;
+            z-index: 6000;
+        }
+
+            .nav-menu:hover {
+                background: #E1DFDF;
+            }
+
+        .nav-inner-menu {
+            display: none;
+            background: #FFFFFF;
+            margin-top: 10px;
+            width: 100%;
+            border-top: 1px solid #cccaca;
+            box-shadow: 0 2px 4px rgba(34,25,25,0.5);
+        }
+
+            .nav-inner-menu a {
+                display: block;
+                padding: 5px 10px;
+                font-size: 14px;
+                z-index: 5000;
+            }
+
+                .nav-inner-menu a:hover {
+                    background: #E1DFDF;
+                }
+    </style>
+    <style>
+        .outer-menu {
+            float: left;
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            z-index: 6000;
+        }
+
+            .outer-menu:hover {
+                background: #E1DFDF;
+            }
+
+        .inner-menu {
+            display: none;
+            background: #FFFFFF;
+            margin-top: 10px;
+            width: 100%;
+            border-top: 1px solid #cccaca;
+            box-shadow: 0 2px 4px rgba(34,25,25,0.5);
+        }
+
+            .inner-menu a {
+                display: block;
+                padding: 5px 10px;
+                font-size: 12px;
+                z-index: 5000;
+            }
+
+                .inner-menu a:hover {
+                    background: #E1DFDF;
+                }
+    </style>
+    <style>
+        .header-search-form {
+            float: right;
+            height: 26px;
+            padding: 7px;
+        }
+
+        .input-search {
+            display: block;
+            float: left;
+            background-color: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            width: 120px;
+            height: 24px;
+            padding: 0 0 0 10px;
+            font-size: 12px;
+            color: #555555;
+        }
+
+            .input-search:focus {
+                border-color: rgba(82, 168, 236, 0.8);
+                outline: 0;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            }
+
+        .input-search-submit {
+            display: block;
+            float: left;
+            width: 40px;
+            height: 24px;
+            border: 1px solid #CCCCCC;
+            margin-left: -1px;
+            vertical-align: top;
+            display: inline-block;
+        }
+    </style>
+    <!-- 로고 -->
+    <style>
+        .header-logo {
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            background: url('logo.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+    <!-- 좌즉 사이드 바-->
+    <style>
+        #wrap {
+            width: 100%;
+            height: 100px;
+            background: white;
+        }
+
+        #sidebar {
+            background: #333;
+            width: 300px;
+            height: 100%;
+            top: 0;
+            left: -300px;
+            position: fixed;
+            z-index: 9999;
+        }
+
+            #sidebar > ul {
+                margin: 0;
+                padding: 0;
+                top: 100px;
+                left: 70px;
+                position: absolute;
+            }
+
+            #sidebar li {
+                color: white;
+                margin: 0 0 30px;
+                list-style: none;
+            }
+
+            #sidebar > button {
+                background: #333;
+                position: absolute;
+                top: 150px;
+                left: 300px;
+                width: 52px;
+                height: 52px;
+                border: none;
+                color: white;
+            }
+    </style>
+    <!--우측 고정 바-->
+    <style>
+        #right-bar {
+            border: 1px solid rgba(205, 205, 205, 1);
+            position: fixed;
+            width: 120px;
+            height: 353px;
+            top: 200px;
+            right: 60px;
+            background: #cfd1e1;
+            z-index: 9999;
+        }
+
+        .right-bar-top {
+            width: 120px;
+            height: 35px;
+        }
+
+        .right-bar-bottom {
+            width: 120px;
+            height: 35px;
+        }
+    </style>
+
+    <style>
+        .icon-sns {
+            padding: 10px 1px;
+            background: #cfd1e1;
+        }
+    </style>
+    <style>
+        .footer-bottom {
+            border-top: 1px solid black;
+            top: 2000px;
+            width: 1290px;
+            position: absolute;
+        }
+
+        .footer-info {
+            position: relative;
+            float: left;
+            width: 980px;
+            height: 500px;
+        }
+
+        .footer-menu {
+            zoom: 1.15;
+            overflow: hidden;
+            height: 35px;
+        }
+
+        .footer-menu-menu li {
+            float: left;
+            padding: 10px 14px 10px 15px;
+        }
+
+            .footer-menu-menu li:first-child {
+                padding-left: 0;
+            }
+
+        .footer-info-address {
+            margin: 10px 0 0;
+            font-size: 15px;
+            color: #b6b6b6;
+            line-height: 20px;
+        }
+
+        .footer-logo {
+            float: right;
+            position: relative;
+            top: 10px;
+            right: 0px;
+        }
+    </style>
+    <style>
+        .main-left-section {
+            border: 1px solid rgba(205, 205, 205, 1);
+            float: left;
+            margin: 10px;
+            width: 188px;
+            height: 430px;
+            background-color: #FFFFFF;
+            position: relative;
+        }
+
+            .main-left-section ul li {
+                height: 54px;
+            }
+    </style>
+    <style>
+        .itempage-area {
+            float: right;
+            position: relative;
+            margin: 0 0 50px;
+        }
+
+        .itempage-top-banner {
+            display: block;
+            padding: 10px 0 20px 0;
+        }
+
+        .itempage-info {
+            
+        }
+
+        .itempage-img {
+            float: left;
+            margin-right: 70px;
+            width: 608px;
+            height: 468px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .itempage-img-img {
+            width: 468px;
+            margin: 0 auto 0;
+        }
+
+            .itempage-img-img img {
+                display: block;
+                width: 100%;
+            }
+    </style>
+    <style>
+        .info-product-inner {
+            float: left;
+            width: 360px;
+        }
+
+        .info-product-inner {
+            height: 470px;
+        }
+
+        .info-product-table {
+            margin: 10px 0 10px;
+        }
+        .product-title {
+            border-bottom: 1px solid black;
+        }
+        .info-product-table th {
+            text-align: left;
+            padding: 10px 0 5px;
+            font-weight: normal;
+            width: 100px;
+        }
+
+        .info-product-table td {
+            padding: 10px 0 5px;
+            
+        }
+
+        .info-product-table td span select {
+            width: 250px;
+            height: 30px;
+        }
+        
+        .product-value {
+            
+            text-align: center;
+            border-top: 1px solid #999;
+            
+        }
+       .product-button {
+           border-top: 1px solid #999;
+           padding-top: 35px;           
+       }
+       .buy-button img{
+           width: 100%;
+           height: 55px;
+           margin-bottom: 15px;
+       }
+        .cart-button {
+            float: left;
+        }
+        .cart-button img {
+            width: 170px;
+            height: 55px;
+        }
+        .jjim-button {
+            margin: 0 0 10px 20px;
+            float: left;
+        }
+        .jjim-button img {
+            width: 170px;
+            height: 55px;
+        }
+    </style>
+    <style>
+        .main-bottom-banner {
+            width: 100%;
+            overflow: hidden;
+         
+        }
+        .main-bottom-banner > ul > li {
+            
+            margin: 1px;
+            float: left;
+        }
+    </style>
+    <style>
+        .itempage-body {
+            margin: 40px 0 30px;
+            border-top: 1px solid black;
+        }
+        .detail-area {
+           margin-top: 50px;
+        }
+    </style>
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+    </script>
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.nav-menu').hover(function () {
+                $(this).find('.nav-inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.nav-inner-menu').css('display', 'none');
+            });
+        });
+    </script>
+    <!--좌측 사이드 바-->
+    <script type="text/javascript">
+        $(function () {
+            var duration = 300;
+
+            var $side = $('#sidebar');
+            var $sidebt = $side.find('button').on('click', function () {
+                $side.toggleClass('open');
+
+                if ($side.hasClass('open')) {
+                    $side.stop(true).animate({ left: '0px' }, duration);
+                    $sidebt.find('span').text('CLOSE');
+                } else {
+                    $side.stop(true).animate({ left: '-300px' }, duration);
+                    $sidebt.find('span').text('OPEN');
+                };
+            });
+        });
+    </script>
+    <script>
+        var fo;
+        window.onload = function () {
+            fo = document.forms["form1"];
+        }
+        function checkPrice() {
+            fo['total'].value = Number(fo['discounted'].value) + Number(fo['sel'].value);
+        }
+    </script>
+</head>
+
+<body>
+
+    <header id="main-header">
+
+        <div id="right-bar">
+            <div class="right-bar-top">
+                <img src="img/right_bar_top.png" width="120" height="35" />
+            </div>
+            <div class="right-bar-body">
+                <ul>
+                    <li><a href="#"><img src="img/right_bar_body1.png" width="120" height="35" /></a></li>
+                    <li><a href="#"><img src="img/right_bar_body2.png" width="120" height="35" /></a></li>
+                    <li><a href="#"><img src="img/right_bar_body3.png" width="120" height="35" /></a></li>
+                    <li><a href="photoreview.html"><img src="img/right_bar_body4.png" width="120" height="35" /></a></li>
+                    <li><a href="#"><img src="img/right_bar_body5.png" width="120" height="35" /></a></li>
+                </ul>
+            </div>
+            <div class="right-bar-sns">
+                <ul class="sns-link">
+                    <li><img src="img/right_bar_body_sns.png" width="120" height="35" /></li>
+                    <li class="icon-sns">
+                        <a href="#" onclick="window.open('http://facebook.com')"><img src="img/sns/facebook.png" width="25" height="25" /></a>
+                        <a href="#" onclick="window.open('https://story.kakao.com')"><img src="img/sns/kakao.png" width="25" height="25" /></a>
+                        <a href="#" onclick="window.open('http://instagram.com')"><img src="img/sns/insta.png" width="25" height="25" /></a>
+                        <a href="#" onclick="window.open('https://twitter.com')"><img src="img/sns/twitter.png" width="25" height="25" /></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-bar-bottom">
+                <a href="#"><img src="img/quick_top.png" width="120" height="35" /></a>
+            </div>
+        </div>
+
+        <div class="header-menu">
+            <ul class="outer-menu">
+                <li>
+                    <a href="weeklybest.html">Best Items</a>
+                    <ul class="inner-menu">
+                        <li><a href="necklace.html">목걸이</a></li>
+                        <li><a href="ring.html">반지</a></li>
+                        <li><a href="earring.html">귀걸이</a></li>
+                        <li><a href="bracelet.html">팔찌</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="outer-menu">
+                <li>
+                    <a href="#">사용자</a>
+                    <ul class="inner-menu">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Join</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <br />
+    <a href="mypage6.html"><div class="header-logo"></div></a>
+    <div class="header-search-form">
+        <form>
+            <input type="search" class="input-search" />
+            <input type="submit" class="input-search-submit" value="검색" />
+        </form>
+    </div>
+    <br /><br />
+    <nav id="main-navigation">
+        <div class="main-menu">
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">쥬얼리</a>
+                    <ul class="nav-inner-menu">
+                        <li><a href="necklace.html">목걸이</a></li>
+                        <li><a href="ring.html">반지</a></li>
+                        <li><a href="earring.html">귀걸이</a></li>
+                        <li><a href="bracelet.html">팔찌</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">남성/종교</a>
+                    <ul class="nav-inner-menu">
+                        <li><a href="men.html">남성 쥬얼리</a></li>
+                        <li><a href="religion.html">종교 쥬얼리</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">웨딩</a>
+                    <ul class="nav-inner-menu">
+                        <li><a href="wedding&diamond.html">웨딩</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">다이아몬드</a>
+                    <ul class="nav-inner-menu">
+                        <li><a href="wedding&diamond.html">다이아몬드</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">SALE</a>
+                    <ul class="nav-inner-menu">
+                        <li><a href="sale.html">할인 특가</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <br />
+
+    <div id="content">
+        <aside>
+            <div class="main-left-section">
+                <ul>
+                    <li><a href="sale.html"><img src="img/main_left_section0.png" onmouseover="this.src = 'img/main_left_section0-1.png'" onmouseout="this.src='img/main_left_section0.png'" /></a></li>
+                    <li><a href="gold.html"><img src="img/main_left_section1.png" onmouseover="this.src = 'img/main_left_section1-1.png'" onmouseout="this.src='img/main_left_section1.png'" /></a></li>
+                    <li><a href="silver.html"><img src="img/main_left_section2.png" onmouseover="this.src = 'img/main_left_section2-1.png'" onmouseout="this.src='img/main_left_section2.png'" /></a></li>
+                    <li><a href="men.html"><img src="img/main_left_section3.png" onmouseover="this.src = 'img/main_left_section3-1.png'" onmouseout="this.src='img/main_left_section3.png'" /></a></li>
+                    <li><a href="religion.html"><img src="img/main_left_section4.png" onmouseover="this.src = 'img/main_left_section4-1.png'" onmouseout="this.src='img/main_left_section4.png'" /></a></li>
+                    <li><a href="wedding&diamond.html"><img src="img/main_left_section5.png" onmouseover="this.src = 'img/main_left_section5-1.png'" onmouseout="this.src='img/main_left_section5.png'" /></a></li>
+                    <li><a href="wedding&diamond.html"><img src="img/main_left_section6.png" onmouseover="this.src = 'img/main_left_section6-1.png'" onmouseout="this.src='img/main_left_section6.png'" /></a></li>
+                    <li><a href="#"><img src="img/main_left_section7.png" onmouseover="this.src = 'img/main_left_section7-1.png'" onmouseout="this.src='img/main_left_section7.png'" /></a></li>
+                </ul>
+            </div>
+        </aside>
+        <div class="itempage-area">
+            <div class="itempage-top-banner">
+                <img src="img/itempage/earring.jpg" width="1080" height="110" />
+
+            </div>
+            <div class="itempage-info">
+                <div class="itempage-img">
+                    <div class="itempage-img-img">
+                        <img src="img/item/earring/earring-1.jpg" />
+                    </div>
+                </div>
+                <div class="info-product">
+                    <div class="info-product-inner">
+                        <h1 class="product-title">귀걸이</h1>
+                        <div class="info-product-table">
+                            <form name="form1">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <div>판매가격</div>
+                                            </th>
+                                            <td>
+                                                <strike>100,000원</strike>
+                                                <input type="hidden" name="price" value="100000" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <div>할인금액</div>
+                                            </th>
+                                            <td>
+                                                <span><b>50,000원</b></span>
+                                                <input type="hidden" name="discounted" value="50000" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <div>색상선택</div>
+                                            </th>
+                                            <td>
+                                                <span>
+                                                    <select>
+                                                        <option value="">--옵션 선택--</option>
+                                                        <option value="0">옐로우 골드</option>
+                                                        <option value="1">핑크 골드</option>
+                                                    </select>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <div>제품선택</div>
+                                            </th>
+                                            <td>
+                                                <span>
+                                                    <select name="sel" id="sel" onchange="checkPrice()">
+                                                        <option value="0">--옵션 선택--</option>
+                                                        <option value="0">14K</option>
+                                                        <option value="50000">24K (+ 50,000\)</option>
+                                                    </select>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="product-value" colspan="2">
+                                                <span>총 상품 금액</span>
+                                                <input type="text" name="total" value="0" style="border:none; text-align:right;" readonly />
+                                                <span>원</span>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="product-button">
+                            <div class="buy-button">
+                                <a href="#"><img src="img/itempage/buy_button.png" /></a>
+                            </div>
+                            <div class="cart-button">
+                                <a href="#"><img src="img/itempage/cart_button.png" /></a>
+                            </div>
+                            <div class="jjim-button">
+                                <a href="#"><img src="img/itempage/jjim_button.png" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="main-bottom-banner">
+            <ul>
+                <li><a href="weeklybest.html"><img src="img/main_banner1.jpg"></a></li>
+                <li><a href="photoreview.html"><img src="img/main_banner2.jpg"></a></li>
+                <li><a href="#"><img src="img/main_banner3.jpg"></a></li>
+                <li><a href="ourshop.html"><img src="img/main_banner4.jpg"></a></li>
+            </ul>
+        </div>
+        <div class="itempage-body">
+            <div class="detail-area">
+                <center><img src="img/item/earring/earring-1.jpg" /></center>
+            </div>
+        </div>
+        <div id="wrap">
+            <aside id="sidebar">
+                <ul>
+                    <a href="necklace.html"><li>목걸이</li></a>
+                    <a href="ring.html"><li>반지</li></a>
+                    <a href="earring.html"><li>귀걸이</li></a>
+                    <a href="bracelet.html"><li>팔찌</li></a>
+                    <a href="sale.html"><li>SALE</li></a>
+                </ul>
+                <button><span class="btn_t">OPEN</span></button>
+            </aside>
+        </div>
+        <div id="footer">
+            <div class="footer-top">
+
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <div class="footer-menu">
+                        <ul class="footer-menu-menu">
+                            <li><a href="ourshop.html"><img src="img/footer/footer_menu1.png" /></a></li>
+                            <li><a href="#"><img src="img/footer/footer_menu2.png" /></a></li>
+                            <li><a href="#"><img src="img/footer/footer_menu3.png" /></a></li>
+                            <li><a href="#"><img src="img/footer/footer_menu4.png" /></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-info-address">
+                        <p>
+                            <span>법인명(상호): (주)이진성 </span>
+                            <span>|</span>
+                            <span>대표자(성명): 이진성</span>
+                            <span>|</span>
+                            <span>사업자 등록번호: 123-45-67890</span>
+                            <br />
+                            <span>전화: 1234-1234 / 02-123-4567</span>
+                            <span>|</span>
+                            <span>주소: 충청북도 우석대학교</span>
+                            <span>|</span>
+                            <span>Contact: email@email.com</span>
+                            <br /><br />
+                            <span>Copyright @ 2018 이진성 All rights reserved.</span>
+                        </p>
+                    </div>
+
+                </div>
+                <p class="footer-logo">
+                    <a href="mypage6.html"><img src="logo3.png" width="160" height="160" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
