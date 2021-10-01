@@ -9,11 +9,7 @@
 ------------
 
 ## ■ Preview
-<style>
-    .img {
-        border: 3px solid black;
-    }
-</style>
+
 <figure>
     <div><b><i>■ Main Page</i></b></div>
     <img class="img" src="/README_IMG/main.PNG" width="60%" height="auto">
