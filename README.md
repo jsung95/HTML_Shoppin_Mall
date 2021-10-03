@@ -1,9 +1,3 @@
-<style>
-    .img {
-        border: 3px solid black;
-    }
-</style>
-
 # HTML 쥬얼리 홈페이지
 
 ------------
