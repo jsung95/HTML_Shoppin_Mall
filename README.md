@@ -18,7 +18,6 @@
 <summary><b>Main Page</b></summary>
 <div markdown="1">
 <figure>
-    <div><b><i>■ Main Page</i></b></div>
     <img class="img" src="/README_IMG/main.PNG" width="70%" height="auto">
 </figure>
 
@@ -29,7 +28,6 @@
 <summary><b>Main Page Products</b></summary>
 <div markdown="1">
 <figure>
-    <div><b><i>■ Main Page Products</i></b></div>
     <img class="img" src="/README_IMG/products.PNG" width="70%" height="auto">
 </figure>
 
@@ -40,7 +38,6 @@
 <summary><b>Product Sell Page</b></summary>
 <div markdown="1">
 <figure>
-    <div><b><i>■ Product Sell Page</i></b></div>
     <img class="img" src="/README_IMG/product.PNG" width="70%" height="auto">
 </figure>
 
