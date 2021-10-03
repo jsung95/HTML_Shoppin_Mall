@@ -42,4 +42,4 @@
 - jQuery
 - Javascript
 - HTML
-- CSS
+- CSS3
