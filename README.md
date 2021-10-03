@@ -19,7 +19,7 @@
 <div markdown="1">
 <figure>
     <div><b><i>■ Main Page</i></b></div>
-    <img class="img" src="/README_IMG/main.png" width="70%" height="auto">
+    <img class="img" src="/README_IMG/main.PNG" width="70%" height="auto">
 </figure>
 
 </div>
@@ -30,7 +30,7 @@
 <div markdown="1">
 <figure>
     <div><b><i>■ Main Page Products</i></b></div>
-    <img class="img" src="/README_IMG/products.png" width="70%" height="auto">
+    <img class="img" src="/README_IMG/products.PNG" width="70%" height="auto">
 </figure>
 
 </div>
@@ -41,7 +41,7 @@
 <div markdown="1">
 <figure>
     <div><b><i>■ Product Sell Page</i></b></div>
-    <img class="img" src="/README_IMG/product.png" width="70%" height="auto">
+    <img class="img" src="/README_IMG/product.PNG" width="70%" height="auto">
 </figure>
 
 </div>
