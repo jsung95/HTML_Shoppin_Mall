@@ -12,7 +12,7 @@
 <summary><b>Main Page</b></summary>
 <div markdown="1">
 <figure>
-    <img class="img" src="/README_IMG/main.PNG" width="70%" height="auto">
+    <img class="img" src="https://cdn.jsdelivr.net/gh/jsung95/HTML_Shoppin_Mall/README_IMG/main.PNG" width="70%" height="auto">
 </figure>
 
 </div>
@@ -22,7 +22,7 @@
 <summary><b>Main Page Products</b></summary>
 <div markdown="1">
 <figure>
-    <img class="img" src="/README_IMG/products.PNG" width="70%" height="auto">
+    <img class="img" src="https://cdn.jsdelivr.net/gh/jsung95/HTML_Shoppin_Mall/README_IMG/products.PNG" width="70%" height="auto">
 </figure>
 
 </div>
@@ -32,7 +32,7 @@
 <summary><b>Product Sell Page</b></summary>
 <div markdown="1">
 <figure>
-    <img class="img" src="/README_IMG/product.PNG" width="70%" height="auto">
+    <img class="img" src="https://cdn.jsdelivr.net/gh/jsung95/HTML_Shoppin_Mall/README_IMG/product.PNG" width="70%" height="auto">
 </figure>
 
 </div>
